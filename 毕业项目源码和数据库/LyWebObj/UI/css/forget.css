@@ -1,0 +1,93 @@
+﻿* {
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+    list-style: none;
+}
+
+.forgets {
+    width: 800px;
+    height: 600px;
+    padding-top: 150px;
+    margin: 0px auto;
+    background-color: white;
+    box-shadow: 10px 10px 10px 5px gray;
+}
+
+.forms {
+    text-align: center;
+}
+
+#Username, #Phone, #Email {
+    width: 400px;
+    height: 2.8em;
+    font-size: 16px;
+    line-height: 3em;
+    margin-left: 30px;
+    margin-top: 30px;
+    font: 18px bold "微软雅黑";
+}
+
+#cked {
+    width: 160px;
+    height: 2.8em;
+    font-size: 16px;
+    line-height: 3em;
+    margin-left: 30px;
+    margin-top: 30px;
+    font: 18px bold "微软雅黑";
+}
+
+#Code {
+    width: 100px;
+    height: 2.8em;
+    font-size: 16px;
+    line-height: 3em;
+    margin-left: -200px;
+    margin-top: 30px;
+    font: 18px bold "微软雅黑";
+}
+
+#msg {
+    border: 1px solid black;
+}
+/*下一步*/
+#check {
+    width: 400px;
+    height: 2.8em;
+    font-size: 16px;
+    line-height: 3em;
+    margin-left: 30px;
+    margin-top: 50px;
+    border-radius: 5px;
+    font: 18px bold "微软雅黑";
+    background-color: dodgerblue;
+    border: dodgerblue;
+    color: white;
+}
+/*验证码*/
+.nocode {
+    display: inline-block;
+    width: 100px;
+    height: 25px;
+}
+
+.code {
+    display: inline-block;
+    color: #ff0000;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    text-align: center;
+    width: 100px;
+    height: 25px;
+    line-height: 25px;
+    cursor: pointer;
+    border: 1px solid #e2b4a2;
+    background: #e2b4a2;
+    margin-top: 30px;
+}
+
+.input {
+    width: 100px;
+}

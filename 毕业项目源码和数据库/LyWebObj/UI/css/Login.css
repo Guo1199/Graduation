@@ -1,0 +1,175 @@
+﻿* {
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    width: 100%;
+    background-image: url('../Images/背景-2.png');
+    background-repeat: no-repeat;
+}
+
+#login {
+    margin: 0px auto;
+    margin-top: 5em;
+}
+
+.Dbox {
+    margin: 0px auto;
+    margin-top: 70px;
+    border-radius: 5px;
+    width: 400px;
+    height: 330px;
+    background: white;
+}
+/*logo设置*/
+.imge {
+    width: 100%;
+}
+
+.Title {
+    width: 170px;
+    margin: 0px auto;
+}
+/*其他社交登录*/
+.SC-login {
+    width: 400px;
+    height: 3em;
+    line-height: 3em;
+    background: white;
+    border-radius: 5px;
+    margin-top: 5em;
+    text-align: center;
+}
+
+.Dbox ul li {
+    margin-top: 8px;
+}
+/*用户登录设置*/
+.AP-login {
+    padding-top: 10px;
+    text-align: center;
+}
+
+.Pwd-login {
+    font-size: 25px;
+}
+/*注册*/
+.register {
+    margin-left: 300px;
+}
+
+hr {
+    width: 90%;
+    margin: 0px auto;
+}
+/*输入框设置*/
+.A-login ul li {
+    font-size: 15px;
+}
+
+#txtUser, #txtPwd {
+    width: 340px;
+    height: 2.5em;
+    font-size: 16px;
+    line-height: 3em;
+    margin-left: 30px;
+    margin-top: 10px;
+    font: 18px bold "微软雅黑";
+    border-bottom: 1px solid gray;
+}
+/*忘记密码设置*/
+.Forget {
+    padding-top: 10px;
+}
+
+.Forgett {
+    margin-left: 300px;
+}
+
+#Radios {
+    margin-left: 20px;
+}
+/*登录*/
+#Sign {
+    width: 15em;
+    height: 40px;
+    font-size: 18px;
+    line-height: 40px;
+    background: dodgerblue;
+    border-radius: 10px;
+    margin-top: 1em;
+    margin-left: 60px;
+    border: dodgerblue;
+    color: white;
+}
+/*信息*/
+.Notes {
+    margin-top: 5em;
+    padding-top: 4em;
+    font-size: 13px;
+    color: white;
+}
+
+    .Notes a:hover {
+        text-decoration: underline;
+    }
+
+    .Notes a {
+        color: white;
+    }
+/*其他登录方式*/
+.social-icons {
+    margin-top: 20px;
+    text-align: center;
+}
+
+    .social-icons ul li {
+        float: left;
+        width: 32.9%;
+    }
+
+        .social-icons ul li a {
+            display: block;
+        }
+
+            .social-icons ul li a span {
+                vertical-align: middle;
+                color: black;
+                font-size: 15px;
+            }
+
+        .social-icons ul li span.icons {
+            background: url('../Images/i1.png') no-repeat center;
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+        }
+
+        .social-icons ul li.weixin span.icons {
+            background: url('../Images/weixin.png') no-repeat;
+            background-size: 100%;
+        }
+
+        .social-icons ul li.qq span.icons {
+            background: url('../Images/QQ.png') no-repeat;
+            background-size: 100%;
+        }
+
+        .social-icons ul li.weibo span.icons {
+            /*--w3layouts--*/
+            /*--agileits--*/
+            background: url('../Images/weibo.png') no-repeat;
+            background-size: 100%;
+        }
+
+        .social-icons ul li a:hover span.icons {
+            transform: rotatey(360deg);
+            -webkit-transform: rotatey(360deg);
+            -o-transform: rotatey(360deg);
+            -moz-transform: rotatey(360deg);
+            -ms-transform: rotatey(360deg);
+            transition: .5s all;
+        }

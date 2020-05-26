@@ -1,0 +1,62 @@
+﻿* {
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    width: 100%;
+    background-image: url('../Images/背景-2.png');
+    background-repeat: no-repeat;
+}
+
+#regist {
+    margin-top: 40px;
+}
+
+.imge {
+    width: 100%;
+}
+
+.Title {
+    width: 170px;
+    margin: 0px auto;
+}
+
+.register {
+    width: 700px;
+    height: 600px;
+    margin: 0px auto;
+    padding-top: 3em;
+    margin-top: 3em;
+    background-color: white;
+    box-shadow: 5px 5px 5px 5px gray;
+}
+
+.form {
+    text-align: center;
+}
+/*输入框*/
+#Username, #Password, #Phone, #Email, #IDcard {
+    width: 400px;
+    height: 2.8em;
+    font-size: 16px;
+    line-height: 3em;
+    padding-left: -110px;
+    margin-top: 30px;
+    font: 18px bold "微软雅黑";
+}
+/*注册账号*/
+#subsign {
+    width: 400px;
+    height: 2.8em;
+    font-size: 16px;
+    line-height: 3em;
+    margin-left: 30px;
+    background: dodgerblue;
+    border-radius: 10px;
+    margin-top: 3em;
+    border: dodgerblue;
+    color: white;
+}

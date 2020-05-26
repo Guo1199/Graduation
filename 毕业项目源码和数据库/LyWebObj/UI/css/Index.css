@@ -1,0 +1,381 @@
+﻿*{
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+	text-decoration: none;
+}
+body{
+	background-color: gainsboro;
+}
+
+/*用户头像大小*/
+.left--top_userimg img {
+    width:100%;
+    height:100%;
+}
+
+.button1 {
+    width:100px;
+    height:50px;
+    font-size:1.3em;
+    color:black;
+    text-align:center;
+    display:inline-block;
+    border-radius:5px;
+    margin-top:20px;
+    margin-left:20px;
+    border:none;
+}
+
+/*内容*/
+.content{
+	width: 1500px;
+	margin: 110px auto;
+	z-index: 0;
+}
+.content_left{
+	width: 20%;
+	height: 1500px;
+	/*border: 1px solid black;*/
+	float: left;
+}
+.content_right{
+	width: 78%;
+	height: auto;
+	/*border: 1px solid black;*/
+	float: right;
+}
+/*左上*/
+.left_top{
+	width: 100%;
+	height: 500px;
+	/*border: 1px solid yellow;*/
+	margin-bottom: 20px;
+	position: relative;
+	background-color: white;
+	border-radius: 5px;
+}
+/*左下*/
+.left_bot{
+	width: 100%;
+	height: 900px;
+	/*border: 1px solid yellow;*/
+	background-color: white;
+	border-radius: 5px;
+}
+/*右上*/
+.right_top{
+	width: 100%;
+	height: 500px;
+	/*border: 1px solid yellow;*/
+	margin-bottom: 20px;
+	position: relative;
+	overflow: hidden;
+	border-radius: 8px;
+}
+/*右下*/
+.right_bot{
+	width: 100%;
+	/*height: 2180px;*/
+	height: 100%;
+	/*border: 1px solid yellow;*/
+	background-color: white;
+	border-radius: 6px;
+}
+.left--top_div1{
+	position: absolute;
+	top: 20%;
+	text-align: center;
+	width: 100%;
+	height: auto;
+	/*border: 1px solid red;*/
+}
+.left--top_userimg{
+	overflow: hidden;
+	width: 90px;
+	height: 90px;
+	border-radius: 50%;
+	border: 3px solid white;
+	margin: 0px auto;
+}
+.left--top_span_1{
+	display: inline-block;
+	margin-top: 15px;
+	font-size: 1.3em;
+}
+.left--top_div2{
+	width: 100%;
+	height: 180px;
+	position: absolute;
+	top: 50%;
+	border-bottom: 1px solid lightgrey;
+}
+.left--top_div3{
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	height: 65px;
+	text-align: center;
+	line-height: 65px;
+}
+.left--top_div3 a{
+	font-size: 1.2em;
+	color: gray;
+	transition: all 0.4s;
+}
+.left--top_div3 a:hover{
+	color: orangered;
+	font-size: 1.4em;
+	transition: all 0.4s;
+}
+.left--top_div2 ul{
+	overflow: hidden;
+}
+.left--top_div2 ul li{
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	background-color: #ECEBF0;
+	margin: 10px 0px;
+}
+.left--top_div2 ul li a{
+	font-size: 1.1em;
+	color: black;
+	transition: all 0.6s;
+}
+.left_bot ul li{
+	width: 90%;
+	height: 80px;
+	line-height: 80px;
+	text-align: left;
+	border-bottom: 1px solid gainsboro;
+	margin: 30px 10px;
+	transition: all 0.6s;
+}
+
+.left_bot ul li a{
+	font-size: 1.4em;
+	color: #A6A5B0;
+    width:100%;
+    height:100%;
+    display:inline-block;
+}
+.right--top_ul{
+	position: absolute;
+	bottom: 6%;
+	right: 5%;
+}
+.right--top_ul li{
+	float: left;
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	border: 1px solid white;
+	margin: 0px 5px;
+}
+
+.lunbo_left,.lunbo_right{
+	width: 70px;
+	height: 160px;
+	text-align: center;
+	line-height: 160px;
+	background-color: black;
+	opacity: 0.5;
+	transition: all 0.4s;
+}
+.lunbo_left{
+	position: absolute;
+	left: 0;
+	top: 33%;
+}
+.lunbo_right{
+	position: absolute;
+	right: 0;
+	top: 33%;
+}
+.lunbo_left a,.lunbo_right a{
+	color: white;
+	font-size: 1.8em;
+}
+/*轮播图片显示*/
+.right_top a .show{
+	display: block;
+}
+/*li背景颜色*/
+.licss{
+	background-color: white;
+}
+.right_top img{
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+	transition: all 0.6s;
+}
+/*首页div*/
+.right--bot_div1,.right--bot_div2{
+	width: 100%;
+	height: 100%;
+}
+.div1_top{
+	width: 100%;
+	height: 90px;
+	border-bottom: 1px solid #E9E9E9;
+}
+.div1--top_span1,.div1--top_span2{
+	display: inline-block;
+	width: 110px;
+	height: 96%;
+	text-align: center;
+	line-height: 90px;
+	margin-left: 30px;
+}
+.div1--top_span1 a,.div1--top_span2 a{
+	color: black;
+	font-size: 1.6em;
+}
+.div1_bot1,.div1_bot2{
+	width: 100%;
+	height: 96%;
+    min-height:200px;
+    position:relative;
+    z-index:0;
+}
+.span {
+    font-size:2em;
+    text-align:center;
+    line-height:200px;
+    color:lightgray;
+    position:absolute;
+    left:42%;
+    top:0px;
+    z-index:2;
+}
+.span1 {
+    font-size:2em;
+    text-align:center;
+    line-height:200px;
+    color:lightgray;
+    position:absolute;
+    left:34%;
+    top:0px;
+    z-index:2;
+}
+.style1{
+	border-bottom:5px solid #2786E4;
+}
+/*热门动态各小模块*/
+.div1--bot1_div1{
+	width: 100%;
+	height: auto;
+	border-bottom: 1px solid lightgrey;
+    transition:all 0.4s;
+    z-index:10;
+}
+/*浮动效果*/
+    .div1--bot1_div1:hover {
+        background-color:lightgray;
+        transition:all 0.4s;
+    }
+.div1--bot1_div6{
+	width: 100%;
+	height: 85px;
+	background-color: black;
+    opacity:0.6;
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+}
+.small_left,.small_right{
+	width: 85px;
+	height: 85px;
+	float: right;
+	text-align: center;
+	line-height: 85px;
+	color: white;
+	font-size: 2em;
+	margin: 0px 10px;
+	transition: all 0.5s;
+}
+.small_1:hover{
+	background-color: grey;
+	cursor: pointer;
+}
+.userdt_3 span {
+    font-size:0.6em;
+}
+/*用户动态内容热门话题*/
+.userdt_1,.userdt_2{
+	width: 95%;
+	margin: 10px auto;
+}
+.userdt_1{
+	height: 120px;
+}
+.userdt_2{
+	height: auto;
+    max-height:300px;
+	overflow: hidden;
+	/*display: none;*/
+}
+.userdt_3{
+	height: 50px;
+	width: 100%;
+	margin: 10px auto;
+	border-top: 1px dashed lightgray;
+}
+/*动态分类*/
+.dtfl{
+	width: 100px;
+	height: 25px;
+	background-color: lightgray;
+	border-radius: 2px;
+	text-align: center;
+	line-height: 25px;
+	font-size: 0.9em;
+}
+.dtfont{
+	width: 100%;
+	height: 90px;
+	font-size: 1.5em;
+	line-height: 90px;
+	overflow: hidden;
+}
+.dtdz,.dtdc,.dtpl{
+	width: 60px;
+	height: 100%;
+	float: right;
+	margin-right: 40px;
+	text-align: center;
+	line-height: 50px;
+	font-size: 2em;
+}
+/*点赞*/
+.dtdz:before{
+	font-family:Glyphicons;
+	content:"\f3c6";
+}
+/*点踩*/
+.dtdc:before{
+	font-family:Glyphicons;
+	content:"\f4d7";
+}
+/*评论*/
+.dtpl:before{
+	font-family:Glyphicons;
+	content:"\f11d";
+}
+.dtimg{
+	width: 280px;
+	height: auto;
+	float: left;
+	margin-right: 60px;
+}
+.dtimg img{
+	width: 100%;
+	height: auto;
+	border-radius: 8px;
+}
+.statelink {
+    color:black;
+}
