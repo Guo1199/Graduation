@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="73c5adbfb0e4437e88e52efd5e22046d" Name="Diagram1">
+        <EntityTypeShape EntityType="W_MusicDBModel.list_Song" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="W_MusicDBModel.Notice" Width="1.5" PointX="3" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="W_MusicDBModel.StoreUp" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="W_MusicDBModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="W_MusicDBModel.u_song_list" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="W_MusicDBModel.UserCommentary" Width="1.5" PointX="6" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="W_MusicDBModel.w_Singer" Width="1.5" PointX="3.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="W_MusicDBModel.w_singerType" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="W_MusicDBModel.w_Song" Width="1.5" PointX="6" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="W_MusicDBModel.w_SongType" Width="1.5" PointX="8.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="W_MusicDBModel.w_User" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <AssociationConnector Association="W_MusicDBModel.FK__list_Song__songI__24927208" ManuallyRouted="false" />
+        <AssociationConnector Association="W_MusicDBModel.FK__list_Song__userI__25869641" ManuallyRouted="false" />
+        <AssociationConnector Association="W_MusicDBModel.FK__list_Song__usl_I__239E4DCF" ManuallyRouted="false" />
+        <AssociationConnector Association="W_MusicDBModel.FK__Notice__userid__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="W_MusicDBModel.FK__StoreUp__songID__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="W_MusicDBModel.FK__StoreUp__userid__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="W_MusicDBModel.FK__UserComme__songI__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="W_MusicDBModel.FK__UserComme__useri__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="W_MusicDBModel.FK__w_singerT__singe__173876EA" ManuallyRouted="false" />
+        <AssociationConnector Association="W_MusicDBModel.FK__w_Song__singerID__1BFD2C07" ManuallyRouted="false" />
+        <AssociationConnector Association="W_MusicDBModel.FK__w_Song__userID__1B0907CE" ManuallyRouted="false" />
+        <AssociationConnector Association="W_MusicDBModel.FK__w_SongTyp__songI__1ED998B2" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

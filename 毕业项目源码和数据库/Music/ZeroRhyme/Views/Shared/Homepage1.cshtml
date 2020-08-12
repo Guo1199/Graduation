@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!-- Title -->
+    <title>@ViewBag.Title-零韵音乐网站</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <!-- Favicon -->
+    <link rel="icon" href="~/Content/img/core-img/favicon.ico">
+    <!-- Stylesheet -->
+    <link href="~/Content/css/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <!-- Preloader -->
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="lds-ellipsis">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+
+        <!-- ##### Header Area Start ##### -->
+        <header class="header-area">
+            <!-- Navbar Area -->
+            <div class="oneMusic-main-menu">
+                <div class="classy-nav-container breakpoint-off">
+                    <div class="container">
+                        <!-- Menu -->
+                        <nav class="classy-navbar justify-content-between" id="oneMusicNav">
+
+                            <!-- Nav brand -->
+                            <a href="index.html" class="nav-brand">
+                                <img src="~/Content/img/core-img/logo.png" alt="" />
+                            </a>
+
+                            <!-- Navbar Toggler -->
+                            <div class="classy-navbar-toggler">
+                                <span class="navbarToggler"><span></span><span></span><span></span></span>
+                            </div>
+
+                            <!-- Menu -->
+                            <div class="classy-menu">
+
+                                <!-- Close Button -->
+                                <div class="classycloseIcon">
+                                    <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                                </div>
+
+                                <!-- Nav Start -->
+                                <div class="classynav">
+                                    <ul>
+                                        <li><a href="index.html">音乐馆</a></li>
+                                        <li><a href="albums-store.html">我的音乐</a></li>
+                                        <li>
+                                            <a href="#">音乐馆</a>
+                                            <ul class="dropdown">
+                                                <li><a href="index.html">首页</a></li>
+                                                <li><a href="albums-store.html">音乐库</a></li>
+                                                <li><a href="event.html">歌手</a></li>
+                                                <li><a href="blog.html">排行榜</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="event.html">Events</a></li>
+                                        <li><a href="blog.html">News</a></li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                    </ul>
+
+                                    <!-- Login/Register & Cart Button -->
+                                    <div class="login-register-cart-button d-flex align-items-center">
+                                        <!-- Login/Register -->
+                                        <div class="login-register-btn mr-50">
+                                            <a href="~/Login/Index" id="loginBtn">登录</a> / 
+                                            <a href="~/Login/Register" id="loginBtn">注册</a>
+                                        </div>
+
+                                        <!-- Cart Button -->
+                                        <div class="cart-btn">
+                                            <p><span class="icon-shopping-cart"></span> <span class="quantity">1</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Nav End -->
+
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+        @RenderBody()
+        <div>
+            <footer class="footer-area">
+                <div class="container">
+                    <div class="row d-flex flex-wrap align-items-center">
+                        <div class="col-12 col-md-6">
+                            <a href="#"><img src="img/core-img/logo.png" alt=""></a>
+                            <p class="copywrite-text">
+                                <a href="#">
+                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                    Copyright &copy;
+                                    <script>document.write(new Date().getFullYear());</script> 版权所有© 2020保留所有权利| 这个模板是用由 <i class="fa fa-heart-o" aria-hidden="true"></i> 零韵网站所有
+                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+</p>
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <div class="footer-nav">
+                                <ul>
+                                    <li><a href="#">Home</a></li>
+                                    <li><a href="#">Albums</a></li>
+                                    <li><a href="#">Events</a></li>
+                                    <li><a href="#">News</a></li>
+                                    <li><a href="#">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+    </div>
+    <script src="~/Scripts/js/bootstrap/bootstrap.min.js"></script>
+    <script src="~/Scripts/js/bootstrap/popper.min.js"></script>
+    <script src="~/Scripts/js/jquery/jquery-2.2.4.min.js"></script>
+    <script src="~/Scripts/js/plugins/plugins.js"></script>
+    <script src="~/Scripts/js/active.js"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

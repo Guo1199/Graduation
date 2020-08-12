@@ -1,0 +1,808 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="W_MusicDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="list_Song">
+          <Key>
+            <PropertyRef Name="list_SongID" />
+          </Key>
+          <Property Name="list_SongID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="usl_ID" Type="int" />
+          <Property Name="songID" Type="int" />
+          <Property Name="userID" Type="int" />
+        </EntityType>
+        <EntityType Name="Notice">
+          <Key>
+            <PropertyRef Name="noticeid" />
+          </Key>
+          <Property Name="noticeid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userid" Type="int" />
+          <Property Name="noticecontent" Type="nvarchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StoreUp">
+          <Key>
+            <PropertyRef Name="StoreUpID" />
+          </Key>
+          <Property Name="StoreUpID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userid" Type="int" />
+          <Property Name="songID" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="u_song_list">
+          <Key>
+            <PropertyRef Name="usl_ID" />
+          </Key>
+          <Property Name="usl_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="usl_Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="UserCommentary">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userid" Type="int" />
+          <Property Name="songID" Type="int" />
+          <Property Name="commentarycontent" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="pltime" Type="date" />
+        </EntityType>
+        <EntityType Name="w_Singer">
+          <Key>
+            <PropertyRef Name="singerID" />
+          </Key>
+          <Property Name="singerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="singerName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="singerimg" Type="nvarchar" MaxLength="100" />
+          <Property Name="isGroup" Type="int" Nullable="false" />
+          <Property Name="singSex" Type="nvarchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="w_singerType">
+          <Key>
+            <PropertyRef Name="typeID" />
+          </Key>
+          <Property Name="typeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="typeName" Type="nvarchar" MaxLength="50" />
+          <Property Name="singerID" Type="int" />
+        </EntityType>
+        <EntityType Name="w_Song">
+          <Key>
+            <PropertyRef Name="songID" />
+          </Key>
+          <Property Name="songID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="songName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="typeID" Type="int" />
+          <Property Name="songGeci" Type="nvarchar" MaxLength="800" />
+          <Property Name="songerimg" Type="nvarchar" MaxLength="100" />
+          <Property Name="songFile" Type="nvarchar" MaxLength="100" />
+          <Property Name="StoreUp" Type="int" />
+          <Property Name="userID" Type="int" />
+          <Property Name="singerID" Type="int" />
+        </EntityType>
+        <EntityType Name="w_SongType">
+          <Key>
+            <PropertyRef Name="typeID" />
+          </Key>
+          <Property Name="typeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="typeName" Type="nvarchar" MaxLength="50" />
+          <Property Name="songID" Type="int" />
+        </EntityType>
+        <EntityType Name="w_User">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="useraccount" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="userpwd" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="userimg" Type="nvarchar" MaxLength="100" />
+          <Property Name="userage" Type="int" />
+          <Property Name="usersex" Type="nvarchar" MaxLength="5" />
+          <Property Name="useremile" Type="nvarchar" MaxLength="50" />
+          <Property Name="userbirthdays" Type="date" />
+          <Property Name="uaerIsAdmin" Type="int" />
+        </EntityType>
+        <Association Name="FK__list_Song__songI__24927208">
+          <End Role="w_Song" Type="Self.w_Song" Multiplicity="0..1" />
+          <End Role="list_Song" Type="Self.list_Song" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="w_Song">
+              <PropertyRef Name="songID" />
+            </Principal>
+            <Dependent Role="list_Song">
+              <PropertyRef Name="songID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__list_Song__userI__25869641">
+          <End Role="w_User" Type="Self.w_User" Multiplicity="0..1" />
+          <End Role="list_Song" Type="Self.list_Song" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="w_User">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="list_Song">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__list_Song__usl_I__239E4DCF">
+          <End Role="u_song_list" Type="Self.u_song_list" Multiplicity="0..1" />
+          <End Role="list_Song" Type="Self.list_Song" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="u_song_list">
+              <PropertyRef Name="usl_ID" />
+            </Principal>
+            <Dependent Role="list_Song">
+              <PropertyRef Name="usl_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Notice__userid__30F848ED">
+          <End Role="w_User" Type="Self.w_User" Multiplicity="0..1" />
+          <End Role="Notice" Type="Self.Notice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="w_User">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="Notice">
+              <PropertyRef Name="userid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StoreUp__songID__2E1BDC42">
+          <End Role="w_Song" Type="Self.w_Song" Multiplicity="0..1" />
+          <End Role="StoreUp" Type="Self.StoreUp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="w_Song">
+              <PropertyRef Name="songID" />
+            </Principal>
+            <Dependent Role="StoreUp">
+              <PropertyRef Name="songID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StoreUp__userid__2D27B809">
+          <End Role="w_User" Type="Self.w_User" Multiplicity="0..1" />
+          <End Role="StoreUp" Type="Self.StoreUp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="w_User">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="StoreUp">
+              <PropertyRef Name="userid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserComme__songI__29572725">
+          <End Role="w_Song" Type="Self.w_Song" Multiplicity="0..1" />
+          <End Role="UserCommentary" Type="Self.UserCommentary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="w_Song">
+              <PropertyRef Name="songID" />
+            </Principal>
+            <Dependent Role="UserCommentary">
+              <PropertyRef Name="songID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserComme__useri__286302EC">
+          <End Role="w_User" Type="Self.w_User" Multiplicity="0..1" />
+          <End Role="UserCommentary" Type="Self.UserCommentary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="w_User">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="UserCommentary">
+              <PropertyRef Name="userid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__w_singerT__singe__173876EA">
+          <End Role="w_Singer" Type="Self.w_Singer" Multiplicity="0..1" />
+          <End Role="w_singerType" Type="Self.w_singerType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="w_Singer">
+              <PropertyRef Name="singerID" />
+            </Principal>
+            <Dependent Role="w_singerType">
+              <PropertyRef Name="singerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__w_Song__singerID__1BFD2C07">
+          <End Role="w_Singer" Type="Self.w_Singer" Multiplicity="0..1" />
+          <End Role="w_Song" Type="Self.w_Song" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="w_Singer">
+              <PropertyRef Name="singerID" />
+            </Principal>
+            <Dependent Role="w_Song">
+              <PropertyRef Name="singerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__w_Song__userID__1B0907CE">
+          <End Role="w_User" Type="Self.w_User" Multiplicity="0..1" />
+          <End Role="w_Song" Type="Self.w_Song" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="w_User">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="w_Song">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__w_SongTyp__songI__1ED998B2">
+          <End Role="w_Song" Type="Self.w_Song" Multiplicity="0..1" />
+          <End Role="w_SongType" Type="Self.w_SongType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="w_Song">
+              <PropertyRef Name="songID" />
+            </Principal>
+            <Dependent Role="w_SongType">
+              <PropertyRef Name="songID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="W_MusicDBModelStoreContainer">
+          <EntitySet Name="list_Song" EntityType="Self.list_Song" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Notice" EntityType="Self.Notice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StoreUp" EntityType="Self.StoreUp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="u_song_list" EntityType="Self.u_song_list" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserCommentary" EntityType="Self.UserCommentary" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="w_Singer" EntityType="Self.w_Singer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="w_singerType" EntityType="Self.w_singerType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="w_Song" EntityType="Self.w_Song" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="w_SongType" EntityType="Self.w_SongType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="w_User" EntityType="Self.w_User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__list_Song__songI__24927208" Association="Self.FK__list_Song__songI__24927208">
+            <End Role="w_Song" EntitySet="w_Song" />
+            <End Role="list_Song" EntitySet="list_Song" />
+          </AssociationSet>
+          <AssociationSet Name="FK__list_Song__userI__25869641" Association="Self.FK__list_Song__userI__25869641">
+            <End Role="w_User" EntitySet="w_User" />
+            <End Role="list_Song" EntitySet="list_Song" />
+          </AssociationSet>
+          <AssociationSet Name="FK__list_Song__usl_I__239E4DCF" Association="Self.FK__list_Song__usl_I__239E4DCF">
+            <End Role="u_song_list" EntitySet="u_song_list" />
+            <End Role="list_Song" EntitySet="list_Song" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Notice__userid__30F848ED" Association="Self.FK__Notice__userid__30F848ED">
+            <End Role="w_User" EntitySet="w_User" />
+            <End Role="Notice" EntitySet="Notice" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StoreUp__songID__2E1BDC42" Association="Self.FK__StoreUp__songID__2E1BDC42">
+            <End Role="w_Song" EntitySet="w_Song" />
+            <End Role="StoreUp" EntitySet="StoreUp" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StoreUp__userid__2D27B809" Association="Self.FK__StoreUp__userid__2D27B809">
+            <End Role="w_User" EntitySet="w_User" />
+            <End Role="StoreUp" EntitySet="StoreUp" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserComme__songI__29572725" Association="Self.FK__UserComme__songI__29572725">
+            <End Role="w_Song" EntitySet="w_Song" />
+            <End Role="UserCommentary" EntitySet="UserCommentary" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserComme__useri__286302EC" Association="Self.FK__UserComme__useri__286302EC">
+            <End Role="w_User" EntitySet="w_User" />
+            <End Role="UserCommentary" EntitySet="UserCommentary" />
+          </AssociationSet>
+          <AssociationSet Name="FK__w_singerT__singe__173876EA" Association="Self.FK__w_singerT__singe__173876EA">
+            <End Role="w_Singer" EntitySet="w_Singer" />
+            <End Role="w_singerType" EntitySet="w_singerType" />
+          </AssociationSet>
+          <AssociationSet Name="FK__w_Song__singerID__1BFD2C07" Association="Self.FK__w_Song__singerID__1BFD2C07">
+            <End Role="w_Singer" EntitySet="w_Singer" />
+            <End Role="w_Song" EntitySet="w_Song" />
+          </AssociationSet>
+          <AssociationSet Name="FK__w_Song__userID__1B0907CE" Association="Self.FK__w_Song__userID__1B0907CE">
+            <End Role="w_User" EntitySet="w_User" />
+            <End Role="w_Song" EntitySet="w_Song" />
+          </AssociationSet>
+          <AssociationSet Name="FK__w_SongTyp__songI__1ED998B2" Association="Self.FK__w_SongTyp__songI__1ED998B2">
+            <End Role="w_Song" EntitySet="w_Song" />
+            <End Role="w_SongType" EntitySet="w_SongType" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="W_MusicDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="list_Song">
+          <Key>
+            <PropertyRef Name="list_SongID" />
+          </Key>
+          <Property Name="list_SongID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="usl_ID" Type="Int32" />
+          <Property Name="songID" Type="Int32" />
+          <Property Name="userID" Type="Int32" />
+          <NavigationProperty Name="w_Song" Relationship="Self.FK__list_Song__songI__24927208" FromRole="list_Song" ToRole="w_Song" />
+          <NavigationProperty Name="w_User" Relationship="Self.FK__list_Song__userI__25869641" FromRole="list_Song" ToRole="w_User" />
+          <NavigationProperty Name="u_song_list" Relationship="Self.FK__list_Song__usl_I__239E4DCF" FromRole="list_Song" ToRole="u_song_list" />
+        </EntityType>
+        <EntityType Name="Notice">
+          <Key>
+            <PropertyRef Name="noticeid" />
+          </Key>
+          <Property Name="noticeid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userid" Type="Int32" />
+          <Property Name="noticecontent" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="w_User" Relationship="Self.FK__Notice__userid__30F848ED" FromRole="Notice" ToRole="w_User" />
+        </EntityType>
+        <EntityType Name="StoreUp">
+          <Key>
+            <PropertyRef Name="StoreUpID" />
+          </Key>
+          <Property Name="StoreUpID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userid" Type="Int32" />
+          <Property Name="songID" Type="Int32" />
+          <NavigationProperty Name="w_Song" Relationship="Self.FK__StoreUp__songID__2E1BDC42" FromRole="StoreUp" ToRole="w_Song" />
+          <NavigationProperty Name="w_User" Relationship="Self.FK__StoreUp__userid__2D27B809" FromRole="StoreUp" ToRole="w_User" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="u_song_list">
+          <Key>
+            <PropertyRef Name="usl_ID" />
+          </Key>
+          <Property Name="usl_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="usl_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="list_Song" Relationship="Self.FK__list_Song__usl_I__239E4DCF" FromRole="u_song_list" ToRole="list_Song" />
+        </EntityType>
+        <EntityType Name="UserCommentary">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userid" Type="Int32" />
+          <Property Name="songID" Type="Int32" />
+          <Property Name="commentarycontent" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="pltime" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="w_Song" Relationship="Self.FK__UserComme__songI__29572725" FromRole="UserCommentary" ToRole="w_Song" />
+          <NavigationProperty Name="w_User" Relationship="Self.FK__UserComme__useri__286302EC" FromRole="UserCommentary" ToRole="w_User" />
+        </EntityType>
+        <EntityType Name="w_Singer">
+          <Key>
+            <PropertyRef Name="singerID" />
+          </Key>
+          <Property Name="singerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="singerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="singerimg" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="isGroup" Type="Int32" Nullable="false" />
+          <Property Name="singSex" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="w_singerType" Relationship="Self.FK__w_singerT__singe__173876EA" FromRole="w_Singer" ToRole="w_singerType" />
+          <NavigationProperty Name="w_Song" Relationship="Self.FK__w_Song__singerID__1BFD2C07" FromRole="w_Singer" ToRole="w_Song" />
+        </EntityType>
+        <EntityType Name="w_singerType">
+          <Key>
+            <PropertyRef Name="typeID" />
+          </Key>
+          <Property Name="typeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="typeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="singerID" Type="Int32" />
+          <NavigationProperty Name="w_Singer" Relationship="Self.FK__w_singerT__singe__173876EA" FromRole="w_singerType" ToRole="w_Singer" />
+        </EntityType>
+        <EntityType Name="w_Song">
+          <Key>
+            <PropertyRef Name="songID" />
+          </Key>
+          <Property Name="songID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="songName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="typeID" Type="Int32" />
+          <Property Name="songGeci" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="songerimg" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="songFile" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="StoreUp" Type="Int32" />
+          <Property Name="userID" Type="Int32" />
+          <Property Name="singerID" Type="Int32" />
+          <NavigationProperty Name="list_Song" Relationship="Self.FK__list_Song__songI__24927208" FromRole="w_Song" ToRole="list_Song" />
+          <NavigationProperty Name="StoreUp1" Relationship="Self.FK__StoreUp__songID__2E1BDC42" FromRole="w_Song" ToRole="StoreUp" />
+          <NavigationProperty Name="UserCommentary" Relationship="Self.FK__UserComme__songI__29572725" FromRole="w_Song" ToRole="UserCommentary" />
+          <NavigationProperty Name="w_Singer" Relationship="Self.FK__w_Song__singerID__1BFD2C07" FromRole="w_Song" ToRole="w_Singer" />
+          <NavigationProperty Name="w_User" Relationship="Self.FK__w_Song__userID__1B0907CE" FromRole="w_Song" ToRole="w_User" />
+          <NavigationProperty Name="w_SongType" Relationship="Self.FK__w_SongTyp__songI__1ED998B2" FromRole="w_Song" ToRole="w_SongType" />
+        </EntityType>
+        <EntityType Name="w_SongType">
+          <Key>
+            <PropertyRef Name="typeID" />
+          </Key>
+          <Property Name="typeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="typeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="songID" Type="Int32" />
+          <NavigationProperty Name="w_Song" Relationship="Self.FK__w_SongTyp__songI__1ED998B2" FromRole="w_SongType" ToRole="w_Song" />
+        </EntityType>
+        <EntityType Name="w_User">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="useraccount" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="userpwd" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="userimg" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="userage" Type="Int32" />
+          <Property Name="usersex" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="useremile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="userbirthdays" Type="DateTime" Precision="0" />
+          <Property Name="uaerIsAdmin" Type="Int32" />
+          <NavigationProperty Name="list_Song" Relationship="Self.FK__list_Song__userI__25869641" FromRole="w_User" ToRole="list_Song" />
+          <NavigationProperty Name="Notice" Relationship="Self.FK__Notice__userid__30F848ED" FromRole="w_User" ToRole="Notice" />
+          <NavigationProperty Name="StoreUp" Relationship="Self.FK__StoreUp__userid__2D27B809" FromRole="w_User" ToRole="StoreUp" />
+          <NavigationProperty Name="UserCommentary" Relationship="Self.FK__UserComme__useri__286302EC" FromRole="w_User" ToRole="UserCommentary" />
+          <NavigationProperty Name="w_Song" Relationship="Self.FK__w_Song__userID__1B0907CE" FromRole="w_User" ToRole="w_Song" />
+        </EntityType>
+        <Association Name="FK__list_Song__songI__24927208">
+          <End Role="w_Song" Type="Self.w_Song" Multiplicity="0..1" />
+          <End Role="list_Song" Type="Self.list_Song" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="w_Song">
+              <PropertyRef Name="songID" />
+            </Principal>
+            <Dependent Role="list_Song">
+              <PropertyRef Name="songID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__list_Song__userI__25869641">
+          <End Role="w_User" Type="Self.w_User" Multiplicity="0..1" />
+          <End Role="list_Song" Type="Self.list_Song" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="w_User">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="list_Song">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__list_Song__usl_I__239E4DCF">
+          <End Role="u_song_list" Type="Self.u_song_list" Multiplicity="0..1" />
+          <End Role="list_Song" Type="Self.list_Song" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="u_song_list">
+              <PropertyRef Name="usl_ID" />
+            </Principal>
+            <Dependent Role="list_Song">
+              <PropertyRef Name="usl_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Notice__userid__30F848ED">
+          <End Role="w_User" Type="Self.w_User" Multiplicity="0..1" />
+          <End Role="Notice" Type="Self.Notice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="w_User">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="Notice">
+              <PropertyRef Name="userid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StoreUp__songID__2E1BDC42">
+          <End Role="w_Song" Type="Self.w_Song" Multiplicity="0..1" />
+          <End Role="StoreUp" Type="Self.StoreUp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="w_Song">
+              <PropertyRef Name="songID" />
+            </Principal>
+            <Dependent Role="StoreUp">
+              <PropertyRef Name="songID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StoreUp__userid__2D27B809">
+          <End Role="w_User" Type="Self.w_User" Multiplicity="0..1" />
+          <End Role="StoreUp" Type="Self.StoreUp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="w_User">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="StoreUp">
+              <PropertyRef Name="userid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserComme__songI__29572725">
+          <End Role="w_Song" Type="Self.w_Song" Multiplicity="0..1" />
+          <End Role="UserCommentary" Type="Self.UserCommentary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="w_Song">
+              <PropertyRef Name="songID" />
+            </Principal>
+            <Dependent Role="UserCommentary">
+              <PropertyRef Name="songID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserComme__useri__286302EC">
+          <End Role="w_User" Type="Self.w_User" Multiplicity="0..1" />
+          <End Role="UserCommentary" Type="Self.UserCommentary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="w_User">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="UserCommentary">
+              <PropertyRef Name="userid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__w_singerT__singe__173876EA">
+          <End Role="w_Singer" Type="Self.w_Singer" Multiplicity="0..1" />
+          <End Role="w_singerType" Type="Self.w_singerType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="w_Singer">
+              <PropertyRef Name="singerID" />
+            </Principal>
+            <Dependent Role="w_singerType">
+              <PropertyRef Name="singerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__w_Song__singerID__1BFD2C07">
+          <End Role="w_Singer" Type="Self.w_Singer" Multiplicity="0..1" />
+          <End Role="w_Song" Type="Self.w_Song" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="w_Singer">
+              <PropertyRef Name="singerID" />
+            </Principal>
+            <Dependent Role="w_Song">
+              <PropertyRef Name="singerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__w_Song__userID__1B0907CE">
+          <End Role="w_User" Type="Self.w_User" Multiplicity="0..1" />
+          <End Role="w_Song" Type="Self.w_Song" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="w_User">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="w_Song">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__w_SongTyp__songI__1ED998B2">
+          <End Role="w_Song" Type="Self.w_Song" Multiplicity="0..1" />
+          <End Role="w_SongType" Type="Self.w_SongType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="w_Song">
+              <PropertyRef Name="songID" />
+            </Principal>
+            <Dependent Role="w_SongType">
+              <PropertyRef Name="songID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="W_MusicDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="list_Song" EntityType="Self.list_Song" />
+          <EntitySet Name="Notice" EntityType="Self.Notice" />
+          <EntitySet Name="StoreUp" EntityType="Self.StoreUp" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="u_song_list" EntityType="Self.u_song_list" />
+          <EntitySet Name="UserCommentary" EntityType="Self.UserCommentary" />
+          <EntitySet Name="w_Singer" EntityType="Self.w_Singer" />
+          <EntitySet Name="w_singerType" EntityType="Self.w_singerType" />
+          <EntitySet Name="w_Song" EntityType="Self.w_Song" />
+          <EntitySet Name="w_SongType" EntityType="Self.w_SongType" />
+          <EntitySet Name="w_User" EntityType="Self.w_User" />
+          <AssociationSet Name="FK__list_Song__songI__24927208" Association="Self.FK__list_Song__songI__24927208">
+            <End Role="w_Song" EntitySet="w_Song" />
+            <End Role="list_Song" EntitySet="list_Song" />
+          </AssociationSet>
+          <AssociationSet Name="FK__list_Song__userI__25869641" Association="Self.FK__list_Song__userI__25869641">
+            <End Role="w_User" EntitySet="w_User" />
+            <End Role="list_Song" EntitySet="list_Song" />
+          </AssociationSet>
+          <AssociationSet Name="FK__list_Song__usl_I__239E4DCF" Association="Self.FK__list_Song__usl_I__239E4DCF">
+            <End Role="u_song_list" EntitySet="u_song_list" />
+            <End Role="list_Song" EntitySet="list_Song" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Notice__userid__30F848ED" Association="Self.FK__Notice__userid__30F848ED">
+            <End Role="w_User" EntitySet="w_User" />
+            <End Role="Notice" EntitySet="Notice" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StoreUp__songID__2E1BDC42" Association="Self.FK__StoreUp__songID__2E1BDC42">
+            <End Role="w_Song" EntitySet="w_Song" />
+            <End Role="StoreUp" EntitySet="StoreUp" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StoreUp__userid__2D27B809" Association="Self.FK__StoreUp__userid__2D27B809">
+            <End Role="w_User" EntitySet="w_User" />
+            <End Role="StoreUp" EntitySet="StoreUp" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserComme__songI__29572725" Association="Self.FK__UserComme__songI__29572725">
+            <End Role="w_Song" EntitySet="w_Song" />
+            <End Role="UserCommentary" EntitySet="UserCommentary" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserComme__useri__286302EC" Association="Self.FK__UserComme__useri__286302EC">
+            <End Role="w_User" EntitySet="w_User" />
+            <End Role="UserCommentary" EntitySet="UserCommentary" />
+          </AssociationSet>
+          <AssociationSet Name="FK__w_singerT__singe__173876EA" Association="Self.FK__w_singerT__singe__173876EA">
+            <End Role="w_Singer" EntitySet="w_Singer" />
+            <End Role="w_singerType" EntitySet="w_singerType" />
+          </AssociationSet>
+          <AssociationSet Name="FK__w_Song__singerID__1BFD2C07" Association="Self.FK__w_Song__singerID__1BFD2C07">
+            <End Role="w_Singer" EntitySet="w_Singer" />
+            <End Role="w_Song" EntitySet="w_Song" />
+          </AssociationSet>
+          <AssociationSet Name="FK__w_Song__userID__1B0907CE" Association="Self.FK__w_Song__userID__1B0907CE">
+            <End Role="w_User" EntitySet="w_User" />
+            <End Role="w_Song" EntitySet="w_Song" />
+          </AssociationSet>
+          <AssociationSet Name="FK__w_SongTyp__songI__1ED998B2" Association="Self.FK__w_SongTyp__songI__1ED998B2">
+            <End Role="w_Song" EntitySet="w_Song" />
+            <End Role="w_SongType" EntitySet="w_SongType" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="W_MusicDBModelStoreContainer" CdmEntityContainer="W_MusicDBEntities">
+          <EntitySetMapping Name="list_Song">
+            <EntityTypeMapping TypeName="W_MusicDBModel.list_Song">
+              <MappingFragment StoreEntitySet="list_Song">
+                <ScalarProperty Name="list_SongID" ColumnName="list_SongID" />
+                <ScalarProperty Name="usl_ID" ColumnName="usl_ID" />
+                <ScalarProperty Name="songID" ColumnName="songID" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Notice">
+            <EntityTypeMapping TypeName="W_MusicDBModel.Notice">
+              <MappingFragment StoreEntitySet="Notice">
+                <ScalarProperty Name="noticeid" ColumnName="noticeid" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="noticecontent" ColumnName="noticecontent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StoreUp">
+            <EntityTypeMapping TypeName="W_MusicDBModel.StoreUp">
+              <MappingFragment StoreEntitySet="StoreUp">
+                <ScalarProperty Name="StoreUpID" ColumnName="StoreUpID" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="songID" ColumnName="songID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="W_MusicDBModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="u_song_list">
+            <EntityTypeMapping TypeName="W_MusicDBModel.u_song_list">
+              <MappingFragment StoreEntitySet="u_song_list">
+                <ScalarProperty Name="usl_ID" ColumnName="usl_ID" />
+                <ScalarProperty Name="usl_Name" ColumnName="usl_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserCommentary">
+            <EntityTypeMapping TypeName="W_MusicDBModel.UserCommentary">
+              <MappingFragment StoreEntitySet="UserCommentary">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="songID" ColumnName="songID" />
+                <ScalarProperty Name="commentarycontent" ColumnName="commentarycontent" />
+                <ScalarProperty Name="pltime" ColumnName="pltime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="w_Singer">
+            <EntityTypeMapping TypeName="W_MusicDBModel.w_Singer">
+              <MappingFragment StoreEntitySet="w_Singer">
+                <ScalarProperty Name="singerID" ColumnName="singerID" />
+                <ScalarProperty Name="singerName" ColumnName="singerName" />
+                <ScalarProperty Name="singerimg" ColumnName="singerimg" />
+                <ScalarProperty Name="isGroup" ColumnName="isGroup" />
+                <ScalarProperty Name="singSex" ColumnName="singSex" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="w_singerType">
+            <EntityTypeMapping TypeName="W_MusicDBModel.w_singerType">
+              <MappingFragment StoreEntitySet="w_singerType">
+                <ScalarProperty Name="typeID" ColumnName="typeID" />
+                <ScalarProperty Name="typeName" ColumnName="typeName" />
+                <ScalarProperty Name="singerID" ColumnName="singerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="w_Song">
+            <EntityTypeMapping TypeName="W_MusicDBModel.w_Song">
+              <MappingFragment StoreEntitySet="w_Song">
+                <ScalarProperty Name="songID" ColumnName="songID" />
+                <ScalarProperty Name="songName" ColumnName="songName" />
+                <ScalarProperty Name="typeID" ColumnName="typeID" />
+                <ScalarProperty Name="songGeci" ColumnName="songGeci" />
+                <ScalarProperty Name="songerimg" ColumnName="songerimg" />
+                <ScalarProperty Name="songFile" ColumnName="songFile" />
+                <ScalarProperty Name="StoreUp" ColumnName="StoreUp" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="singerID" ColumnName="singerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="w_SongType">
+            <EntityTypeMapping TypeName="W_MusicDBModel.w_SongType">
+              <MappingFragment StoreEntitySet="w_SongType">
+                <ScalarProperty Name="typeID" ColumnName="typeID" />
+                <ScalarProperty Name="typeName" ColumnName="typeName" />
+                <ScalarProperty Name="songID" ColumnName="songID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="w_User">
+            <EntityTypeMapping TypeName="W_MusicDBModel.w_User">
+              <MappingFragment StoreEntitySet="w_User">
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="useraccount" ColumnName="useraccount" />
+                <ScalarProperty Name="userpwd" ColumnName="userpwd" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="userimg" ColumnName="userimg" />
+                <ScalarProperty Name="userage" ColumnName="userage" />
+                <ScalarProperty Name="usersex" ColumnName="usersex" />
+                <ScalarProperty Name="useremile" ColumnName="useremile" />
+                <ScalarProperty Name="userbirthdays" ColumnName="userbirthdays" />
+                <ScalarProperty Name="uaerIsAdmin" ColumnName="uaerIsAdmin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
